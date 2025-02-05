@@ -1,0 +1,392 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-direction: column;
+            height: 90vh;
+            background-image: url(bg3.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.222);
+            border-radius: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+        }
+
+        input {
+            height: 50px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        ::placeholder {
+            color: rgba(75, 81, 81, 0.99);
+            font-weight: bold;
+            font-size: 15px;
+            position: relative;
+            left: 10px;
+        }
+
+        #btn {
+            height: 40px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 10px;
+            width: 80px;
+            color: rgb(63, 62, 61);
+            margin-bottom: 20px;
+            font-weight: bold;
+            position: relative;
+            left: 37%;
+            font-size: 15px;
+        }
+
+        #btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+        h1 {
+            color: aliceblue;
+            font-family: sans-serif;
+        }
+
+        .divguest {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .guest {
+            margin-bottom: 20px;
+            margin-top: -10px;
+        }
+
+        .guest1 {
+            text-decoration: underline;
+            color: aliceblue;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: aliceblue;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Sign in</h1>
+        <form action="">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <label for=""></label>
+            <input id="btn" type="submit" value="Login">
+        </form>
+        <div class="divguest">
+            <p>Not a Member? <a href="signup.html">Sign Up</a></p>
+            <p class="guest">Login as a <span class="guest1">Guest</span></p>
+             Forgot Password Link -->
+            <!-- <p class="forgot-password">
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Function to simulate password recovery
+        function handleForgotPassword() {
+            const email = document.getElementById("email").value;
+
+            // Check if the email is in local storage or simulate the reset flow
+            if (!email) {
+                alert("Please enter your email address.");
+                return;
+            }
+
+            // Simulate checking stored users (in localStorage for example)
+            const storedUsers = localStorage.getItem("users");
+            const users = JSON.parse(storedUsers) || [];
+
+            // Find if the entered email exists in stored users
+            const userExists = users.find(user => user.email === email);
+
+            if (userExists) {
+                alert("Password reset email sent. Please check your inbox to reset your password.");
+            } else {
+                alert("No account found with that email address.");
+            }
+        }
+
+        // Form submit event
+        document.forms[0].addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = e.target[0].value;
+            const password = e.target[1].value;
+
+            // Check if the user exists in local storage (simulating authentication)
+            const storedUsers = localStorage.getItem("users");
+            const users = JSON.parse(storedUsers) || [];
+
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                alert("Login successful!");
+                localStorage.setItem("userinfo", JSON.stringify(user));
+                window.location.assign("day.html");
+            } else {
+                alert("Invalid email or password.");
+            }
+        });
+
+        // Guest Login Event
+        document.getElementsByClassName("guest1")[0].addEventListener("click", () => {
+            localStorage.removeItem("userinfo");
+            window.location.assign("day.html");
+        });
+
+        // Forgot Password Event
+        document.getElementById("forgotPasswordLink").addEventListener("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            handleForgotPassword();
+        });
+    </script>
+</body>
+
+</html>  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-direction: column;
+            height: 90vh;
+            background-image: url(bg3.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.222);
+            border-radius: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+        }
+
+        input {
+            height: 50px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        ::placeholder {
+            color: rgba(75, 81, 81, 0.99);
+            font-weight: bold;
+            font-size: 15px;
+            position: relative;
+            left: 10px;
+        }
+
+        #btn {
+            height: 40px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 10px;
+            width: 80px;
+            color: rgb(63, 62, 61);
+            margin-bottom: 20px;
+            font-weight: bold;
+            position: relative;
+            left: 37%;
+            font-size: 15px;
+        }
+
+        #btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+        h1 {
+            color: aliceblue;
+            font-family: sans-serif;
+        }
+
+        .divguest {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .guest {
+            margin-bottom: 20px;
+            margin-top: -10px;
+        }
+
+        .guest1 {
+            text-decoration: underline;
+            color: aliceblue;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: aliceblue;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Sign in</h1>
+        <form action="">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input id="btn" type="submit" value="Login">
+        </form>
+        <div class="divguest">
+            <p>Not a Member? <a href="signup.html">Sign Up</a></p>
+            <p class="guest">Login as a <span class="guest1">Guest</span></p>
+            <!-- Forgot Password Link -->
+            <p class="forgot-password">
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK Initialization -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBvY0N5jO9kot5SQ5z0v0CV_er4FYY8YOA",
+            authDomain: "madhu-46d78.firebaseapp.com",
+            databaseURL: "https://madhu-46d78-default-rtdb.firebaseio.com",
+            projectId: "madhu-46d78",
+            storageBucket: "madhu-46d78.firebasestorage.app",
+            messagingSenderId: "957092956613",
+            appId: "1:957092956613:web:5f99506e3cc80ab25263ac",
+            measurementId: "G-1T5927X4FQ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Form Submit Event for login
+        document.forms[0].addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = e.target[0].value;
+            const password = e.target[1].value;
+
+            // Try to authenticate with Firebase
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert("Login successful with Firebase!");
+                    localStorage.setItem("userinfo", JSON.stringify([{
+                        email: user.email,
+                        uid: user.uid
+                    }]));
+                    window.location.assign("day.html");  // Redirect to main page
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+
+                    // Firebase failed, fallback to local storage check
+                    var storedUsers = localStorage.getItem("users");
+                    var arr = JSON.parse(storedUsers) || [];
+
+                    let foundUser = arr.find(user => user.email === email && user.password === password);
+                    if (foundUser) {
+                        alert("Login successful with local storage!");
+                        localStorage.setItem("userinfo", JSON.stringify([foundUser]));
+                        window.location.assign("day.html");
+                    } else {
+                        alert("Invalid Email or Password");
+                    }
+                });
+        });
+
+        // Guest Login Event
+        document.getElementsByClassName("guest1")[0].addEventListener("click", () => {
+            localStorage.removeItem("userinfo");
+            window.location.assign("day.html");
+        });
+
+        // Forgot Password Event: Redirect to reset password page
+        document.getElementById("forgotPasswordLink").addEventListener("click", function (e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            window.location.assign("reset password.html");  // Redirect to reset password page
+        });
+    </script>
+</body>
+
+</html>
